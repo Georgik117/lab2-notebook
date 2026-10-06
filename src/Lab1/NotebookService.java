@@ -25,4 +25,11 @@ public class NotebookService {
     static void setNotebooks(Notebook[] value) {
         notebooks = value;
     }
+
+    public static void printNotebooks() {
+        System.out.println("\nИнформация о людях:");
+        for (int i = 0; i < notebooks.length; i++) {
+            System.out.println(notebooks[i]);
+        }
+    }
 }

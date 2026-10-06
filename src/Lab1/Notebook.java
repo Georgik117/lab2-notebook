@@ -57,12 +57,9 @@ public class Notebook {
         }
     }
 
+    /** Временная заглушка: работа перенесена в NotebookService. */
     public static void printNotebooks() {
-        Notebook[] arr = NotebookService.getNotebooks();
-        System.out.println("\nИнформация о людях:");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
-        }
+        NotebookService.printNotebooks();
     }
 
     public static void printGroupedByBirthMonth() {
