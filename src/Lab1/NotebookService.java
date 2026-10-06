@@ -72,6 +72,20 @@ public class NotebookService {
         }
     }
 
+    // --- новый функционал, добавленный в ветке feature/find-by-fio ---
+
+    public static Notebook findByFio(String fio) {
+        System.out.println("Поиск абонента: " + fio);
+        for (Notebook n : notebooks) {
+            if (n.getFIO().equalsIgnoreCase(fio)) {
+                System.out.println("  Найден: " + n);
+                return n;
+            }
+        }
+        System.out.println("  Абонент не найден");
+        return null;
+    }
+
     public static void fillNotebooks() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите количество человек в записной книжке: ");
