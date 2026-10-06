@@ -32,4 +32,20 @@ public class NotebookService {
             System.out.println(notebooks[i]);
         }
     }
+
+    public static void printGroupedByBirthMonth() {
+        System.out.println("Абоненты, сгруппированные по месяцам рождения ");
+        for (int month = 1; month <= 12; month++) {
+            boolean foundInThisMonth = false;
+            for (Notebook n : notebooks) {
+                if (n.getBirthDate().getMonthValue() == month) {
+                    if (!foundInThisMonth) {
+                        System.out.println("Месяц: " + month);
+                        foundInThisMonth = true;
+                    }
+                    System.out.println("  - " + n.getFIO() + " (" + n.getBirthDate() + ")");
+                }
+            }
+        }
+    }
 }

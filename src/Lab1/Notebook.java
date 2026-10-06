@@ -62,21 +62,9 @@ public class Notebook {
         NotebookService.printNotebooks();
     }
 
+    /** Временная заглушка: работа перенесена в NotebookService. */
     public static void printGroupedByBirthMonth() {
-        Notebook[] arr = NotebookService.getNotebooks();
-        System.out.println("Абоненты, сгруппированные по месяцам рождения ");
-        for (int month = 1; month <= 12; month++) {
-            boolean foundInThisMonth = false;
-            for (Notebook n : arr) {
-                if (n.birthDate.getMonthValue() == month) {
-                    if (!foundInThisMonth) {
-                        System.out.println("Месяц: " + month);
-                        foundInThisMonth = true;
-                    }
-                    System.out.println("  - " + n.FIO + " (" + n.birthDate + ")");
-                }
-            }
-        }
+        NotebookService.printGroupedByBirthMonth();
     }
 
     public static void printCurrentMonthBirthdays() {
