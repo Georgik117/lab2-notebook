@@ -72,23 +72,9 @@ public class Notebook {
         NotebookService.printCurrentMonthBirthdays();
     }
 
+    /** Временная заглушка: работа перенесена в NotebookService. */
     public static void sortBySurname() {
-        Notebook[] arr = NotebookService.getNotebooks();
-        System.out.println("\nМассив, упорядоченный по фамилиям (по алфавиту) ");
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                String surname1 = arr[j].FIO.trim().split("\\s+")[0];
-                String surname2 = arr[j + 1].FIO.trim().split("\\s+")[0];
-                if (surname1.compareToIgnoreCase(surname2) > 0) {
-                    Notebook temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
-        }
-        for (Notebook n : arr) {
-            System.out.println(n.toString());
-        }
+        NotebookService.sortBySurname();
     }
 
     public String getFIO() {

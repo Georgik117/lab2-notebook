@@ -63,4 +63,22 @@ public class NotebookService {
             System.out.println("В текущем месяце (" + currentMonth + ") дней рождения нет.");
         }
     }
+
+    public static void sortBySurname() {
+        System.out.println("\nМассив, упорядоченный по фамилиям (по алфавиту) ");
+        for (int i = 0; i < notebooks.length - 1; i++) {
+            for (int j = 0; j < notebooks.length - 1 - i; j++) {
+                String surname1 = notebooks[j].getFIO().trim().split("\\s+")[0];
+                String surname2 = notebooks[j + 1].getFIO().trim().split("\\s+")[0];
+                if (surname1.compareToIgnoreCase(surname2) > 0) {
+                    Notebook temp = notebooks[j];
+                    notebooks[j] = notebooks[j + 1];
+                    notebooks[j + 1] = temp;
+                }
+            }
+        }
+        for (Notebook n : notebooks) {
+            System.out.println(n.toString());
+        }
+    }
 }
