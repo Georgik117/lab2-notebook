@@ -68,6 +68,37 @@ public class Notebook {
         }
     }
 
+    public static void printGroupedByBirthMonth() {
+        System.out.println("Абоненты, сгруппированные по месяцам рождения ");
+        for (int month = 1; month <= 12; month++) {
+            boolean foundInThisMonth = false;
+            for (Notebook n : notebooks) {
+                if (n.birthDate.getMonthValue() == month) {
+                    if (!foundInThisMonth) {
+                        System.out.println("Месяц: " + month);
+                        foundInThisMonth = true;
+                    }
+                    System.out.println("  - " + n.FIO + " (" + n.birthDate + ")");
+                }
+            }
+        }
+    }
+
+    public static void printCurrentMonthBirthdays() {
+        System.out.println("\n Люди с днем рождения в текущем месяце");
+        int currentMonth = LocalDate.now().getMonthValue();
+        boolean found = false;
+        for (Notebook n : notebooks) {
+            if (n.birthDate.getMonthValue() == currentMonth) {
+                System.out.println(n.toString());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("В текущем месяце (" + currentMonth + ") дней рождения нет.");
+        }
+    }
+
     public String getFIO() {
         return this.FIO;
     }
