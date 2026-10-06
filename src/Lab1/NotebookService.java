@@ -72,6 +72,18 @@ public class NotebookService {
         }
     }
 
+    // --- новый функционал, добавленный в master ---
+
+    public static Notebook searchByFio(String fio) {
+        System.out.println("Поиск абонента по ФИО: " + fio);
+        for (int i = 0; i < notebooks.length; i++) {
+            if (notebooks[i].getFIO().equals(fio)) {
+                return notebooks[i];
+            }
+        }
+        return null;
+    }
+
     public static void fillNotebooks() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите количество человек в записной книжке: ");
