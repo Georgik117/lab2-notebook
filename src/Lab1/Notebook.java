@@ -23,8 +23,11 @@ public class Notebook {
         this.birthDate = birthDate;
     }
 
-    public Notebook() {
-        Scanner sc = new Scanner(System.in);
+    /**
+     * Конструктор, читающий данные абонента с клавиатуры.
+     * Scanner передаётся снаружи, чтобы на весь ввод был один поток чтения.
+     */
+    public Notebook(Scanner sc) {
         System.out.print("ФИО : ");
         this.setFIO(sc.nextLine());
         System.out.print("\tАдресс : ");

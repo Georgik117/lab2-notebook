@@ -2,7 +2,17 @@ import Lab1.NotebookService;
 
 import java.util.Scanner;
 
+/**
+ * Точка входа: только меню и вызовы методов NotebookService.
+ */
 public class Main {
+    /**
+     * Единственный Scanner на весь ввод из консоли.
+     * Создавать несколько Scanner на одном System.in нельзя: первый забирает
+     * входной буфер целиком, и следующий Scanner не находит данных.
+     */
+    private static final Scanner IN = NotebookService.IN;
+
     public static void main(String[] args) {
         // Меню программы
         cycle: while (true) {
@@ -16,30 +26,25 @@ public class Main {
             System.out.println("8. Показать количество абонентов");
             System.out.println("9. Найти абонента по ФИО (точное совпадение)");
             System.out.println("Выберете пункт меню (1..10)");
-            int c = (new Scanner(System.in)).nextInt();
+            int c = IN.nextInt();
+            IN.nextLine(); // сброс перевода строки после nextInt
             switch (c) {
                 case 1: NotebookService.fillNotebooks(); break;
                 case 2: NotebookService.printNotebooks(); break;
                 case 3: NotebookService.printGroupedByBirthMonth(); break;
                 case 4: NotebookService.printCurrentMonthBirthdays(); break;
                 case 5: NotebookService.sortBySurname(); break;
-                case 6: readFio("Введите ФИО для поиска: ");
-                      NotebookService.findByFio(fio); break;
-                case 7: readFio("Введите ФИО для удаления: ");
-                      NotebookService.removeByFio(fio); break;
+                case 6: NotebookService.findByFio(readLine("Введите ФИО для поиска: ")); break;
+                case 7: NotebookService.removeByFio(readLine("Введите ФИО для удаления: ")); break;
                 case 8: System.out.println("Количество абонентов: " + NotebookService.count()); break;
-                case 9: readFio("Введите ФИО для поиска: ");
-                      NotebookService.searchByFio(fio); break;
+                case 9: NotebookService.searchByFio(readLine("Введите ФИО для поиска: ")); break;
                 default: break cycle;
             }
         }
     }
 
-    private static String fio;
-
-    private static void readFio(String prompt) {
-        Scanner sc = new Scanner(System.in);
+    private static String readLine(String prompt) {
         System.out.print(prompt);
-        fio = sc.nextLine();
+        return IN.nextLine();
     }
 }

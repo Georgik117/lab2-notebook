@@ -8,6 +8,14 @@ import java.util.Scanner;
  * Отвечает только за статический массив и операции над ним.
  */
 public class NotebookService {
+
+    /**
+     * Единственный Scanner на весь ввод из консоли.
+     * Создавать несколько Scanner на одном System.in нельзя: первый забирает
+     * входной буфер целиком, и следующий Scanner не находит данных.
+     */
+    public static final Scanner IN = new Scanner(System.in);
+
     private static Notebook[] notebooks = {
             new Notebook("Иванов Иван Иванович", "ул. Ленина д.1", 890011223, "ivanov@mail.com", LocalDate.of(2000, 5, 15)),
             new Notebook("Петров Петр Петрович", "ул. Мира д.2", 890044455, "petrov@mail.com", LocalDate.of(1995, 5, 20)),
@@ -119,6 +127,7 @@ public class NotebookService {
         System.out.println("Поиск абонента по ФИО: " + fio);
         for (int i = 0; i < notebooks.length; i++) {
             if (notebooks[i].getFIO().equals(fio)) {
+                System.out.println("  Найден: " + notebooks[i]);
                 return notebooks[i];
             }
         }
@@ -127,7 +136,7 @@ public class NotebookService {
     }
 
     public static void fillNotebooks() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = IN;
         System.out.println("Введите количество человек в записной книжке: ");
         int n = sc.nextInt();
         sc.nextLine();
@@ -135,7 +144,7 @@ public class NotebookService {
         System.out.println("Введите информацию о людях: ");
         for (int i = 0; i < notebooks.length; i++) {
             System.out.println("Человек " + (i + 1) + ":");
-            notebooks[i] = new Notebook();
+            notebooks[i] = new Notebook(sc);
         }
     }
 }
