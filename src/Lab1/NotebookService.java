@@ -13,7 +13,8 @@ public class NotebookService {
             new Notebook("Петров Петр Петрович", "ул. Мира д.2", 890044455, "petrov@mail.com", LocalDate.of(1995, 5, 20)),
             new Notebook("Сидоров Сидор Сидорович", "ул. Гагарина д.3", 890077788, "sidorov@mail.com", LocalDate.of(2007, 11, 11)),
             new Notebook("Алексеев Алексей Алексеевич", "ул. Пушкина д.4", 890012345, "alex@mail.com", LocalDate.of(1990, 9, 5)),
-            new Notebook("Борисов Борис Борисович", "ул. Лермонтова д.5", 890098765, "boris@mail.com", LocalDate.of(2001, 1, 25))
+            new Notebook("Борисов Борис Борисович", "ул. Лермонтова д.5", 890098765, "boris@mail.com", LocalDate.of(2001, 1, 25)),
+            new Notebook("Орлов Олег Олегович", "ул. Кирова д.6", 890077123, "orlov@mail.com", LocalDate.of(1998, 3, 8))
     };
 
     public static void printNotebooks() {
