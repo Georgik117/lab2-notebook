@@ -105,6 +105,12 @@ public class NotebookService {
         System.out.println("Абонент \"" + fio + "\" не найден");
         return false;
     }
+
+    // --- новый функционал, добавленный в ветке feature/count ---
+
+    public static int count() {
+        return notebooks.length;
+    }
     public static void fillNotebooks() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите количество человек в записной книжке: ");
