@@ -43,31 +43,6 @@ public class Notebook {
         return String.format("%-35s | Тел: %-12d | ДР: %s", FIO, number, birthDate);
     }
 
-    /** Временная заглушка: работа перенесена в NotebookService. */
-    public static void printNotebooks() {
-        NotebookService.printNotebooks();
-    }
-
-    /** Временная заглушка: работа перенесена в NotebookService. */
-    public static void printGroupedByBirthMonth() {
-        NotebookService.printGroupedByBirthMonth();
-    }
-
-    /** Временная заглушка: работа перенесена в NotebookService. */
-    public static void printCurrentMonthBirthdays() {
-        NotebookService.printCurrentMonthBirthdays();
-    }
-
-    /** Временная заглушка: работа перенесена в NotebookService. */
-    public static void sortBySurname() {
-        NotebookService.sortBySurname();
-    }
-
-    /** Временная заглушка: работа перенесена в NotebookService. */
-    public static void fillNotebooks() {
-        NotebookService.fillNotebooks();
-    }
-
     public String getFIO() {
         return this.FIO;
     }

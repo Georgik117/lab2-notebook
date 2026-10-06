@@ -16,16 +16,6 @@ public class NotebookService {
             new Notebook("Борисов Борис Борисович", "ул. Лермонтова д.5", 890098765, "boris@mail.com", LocalDate.of(2001, 1, 25))
     };
 
-    /** Временный доступ к массиву (нужен классу Notebook на время рефакторинга). */
-    static Notebook[] getNotebooks() {
-        return notebooks;
-    }
-
-    /** Временная запись массива (нужна классу Notebook на время рефакторинга). */
-    static void setNotebooks(Notebook[] value) {
-        notebooks = value;
-    }
-
     public static void printNotebooks() {
         System.out.println("\nИнформация о людях:");
         for (int i = 0; i < notebooks.length; i++) {
