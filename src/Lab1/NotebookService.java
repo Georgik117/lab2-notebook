@@ -86,6 +86,25 @@ public class NotebookService {
         return null;
     }
 
+
+    // --- новый функционал, добавленный в ветке feature/remove-by-fio ---
+
+    public static boolean removeByFio(String fio) {
+        for (int i = 0; i < notebooks.length; i++) {
+            if (notebooks[i].getFIO().equalsIgnoreCase(fio)) {
+                Notebook[] newNotebooks = new Notebook[notebooks.length - 1];
+                for (int j = 0, k = 0; j < notebooks.length; j++) {
+                    if (j != i)
+                        newNotebooks[k++] = notebooks[j];
+                }
+                notebooks = newNotebooks;
+                System.out.println("Абонент \"" + fio + "\" удалён");
+                return true;
+            }
+        }
+        System.out.println("Абонент \"" + fio + "\" не найден");
+        return false;
+    }
     public static void fillNotebooks() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите количество человек в записной книжке: ");
