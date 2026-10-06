@@ -31,13 +31,14 @@ public class Notebook {
     }
 
     public Notebook() {
-        Scanner sc = new Scanner(System.in, "cp1251");
+        Scanner sc = new Scanner(System.in);
         System.out.print("ФИО : ");
         this.setFIO(sc.nextLine());
         System.out.print("\tАдресс : ");
         this.setAddress(sc.nextLine());
         System.out.print("\tНомер телефона : ");
         this.setNumber(sc.nextInt());
+        sc.nextLine();
         System.out.print("\tПочта : ");
         this.setEmail(sc.nextLine());
         System.out.print("\tДень рождения : ");
@@ -50,9 +51,10 @@ public class Notebook {
     }
 
     public static void fillNotebooks() {
-        Scanner sc = new Scanner(System.in, "cp1251");
+        Scanner sc = new Scanner(System.in);
         System.out.println("Введите количество человек в записной книжке: ");
         int n = sc.nextInt();
+        sc.nextLine();
         notebooks = new Notebook[n];
         System.out.println("Введите информацию о людях: ");
         for (int i = 0; i < notebooks.length; i++) {
