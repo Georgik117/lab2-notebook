@@ -1,4 +1,4 @@
-import Lab1.Notebook;
+import Lab1.NotebookService;
 
 import java.util.Scanner;
 
@@ -14,11 +14,11 @@ public class Main {
             System.out.println("Выберете пункт меню (1..5)");
             int c = (new Scanner(System.in)).nextInt();
             switch (c) {
-                case 1: Notebook.fillNotebooks(); break;
-                case 2: Notebook.printNotebooks(); break;
-                case 3: Notebook.printGroupedByBirthMonth(); break;
-                case 4: Notebook.printCurrentMonthBirthdays(); break;
-                case 5: Notebook.sortBySurname(); break;
+                case 1: NotebookService.fillNotebooks(); break;
+                case 2: NotebookService.printNotebooks(); break;
+                case 3: NotebookService.printGroupedByBirthMonth(); break;
+                case 4: NotebookService.printCurrentMonthBirthdays(); break;
+                case 5: NotebookService.sortBySurname(); break;
                 default: break cycle;
             }
         }
