@@ -99,6 +99,24 @@ public class Notebook {
         }
     }
 
+    public static void sortBySurname() {
+        System.out.println("\nМассив, упорядоченный по фамилиям (по алфавиту) ");
+        for (int i = 0; i < notebooks.length - 1; i++) {
+            for (int j = 0; j < notebooks.length - 1 - i; j++) {
+                String surname1 = notebooks[j].FIO.trim().split("\\s+")[0];
+                String surname2 = notebooks[j + 1].FIO.trim().split("\\s+")[0];
+                if (surname1.compareToIgnoreCase(surname2) > 0) {
+                    Notebook temp = notebooks[j];
+                    notebooks[j] = notebooks[j + 1];
+                    notebooks[j + 1] = temp;
+                }
+            }
+        }
+        for (Notebook n : notebooks) {
+            System.out.println(n.toString());
+        }
+    }
+
     public String getFIO() {
         return this.FIO;
     }
