@@ -48,4 +48,19 @@ public class NotebookService {
             }
         }
     }
+
+    public static void printCurrentMonthBirthdays() {
+        System.out.println("\n Люди с днем рождения в текущем месяце");
+        int currentMonth = LocalDate.now().getMonthValue();
+        boolean found = false;
+        for (Notebook n : notebooks) {
+            if (n.getBirthDate().getMonthValue() == currentMonth) {
+                System.out.println(n.toString());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("В текущем месяце (" + currentMonth + ") дней рождения нет.");
+        }
+    }
 }

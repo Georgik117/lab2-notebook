@@ -67,20 +67,9 @@ public class Notebook {
         NotebookService.printGroupedByBirthMonth();
     }
 
+    /** Временная заглушка: работа перенесена в NotebookService. */
     public static void printCurrentMonthBirthdays() {
-        Notebook[] arr = NotebookService.getNotebooks();
-        System.out.println("\n Люди с днем рождения в текущем месяце");
-        int currentMonth = LocalDate.now().getMonthValue();
-        boolean found = false;
-        for (Notebook n : arr) {
-            if (n.birthDate.getMonthValue() == currentMonth) {
-                System.out.println(n.toString());
-                found = true;
-            }
-        }
-        if (!found) {
-            System.out.println("В текущем месяце (" + currentMonth + ") дней рождения нет.");
-        }
+        NotebookService.printCurrentMonthBirthdays();
     }
 
     public static void sortBySurname() {
