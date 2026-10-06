@@ -43,20 +43,6 @@ public class Notebook {
         return String.format("%-35s | Тел: %-12d | ДР: %s", FIO, number, birthDate);
     }
 
-    public static void fillNotebooks() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите количество человек в записной книжке: ");
-        int n = sc.nextInt();
-        sc.nextLine();
-        NotebookService.setNotebooks(new Notebook[n]);
-        System.out.println("Введите информацию о людях: ");
-        Notebook[] arr = NotebookService.getNotebooks();
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println("Человек " + (i + 1) + ":");
-            arr[i] = new Notebook();
-        }
-    }
-
     /** Временная заглушка: работа перенесена в NotebookService. */
     public static void printNotebooks() {
         NotebookService.printNotebooks();
@@ -75,6 +61,11 @@ public class Notebook {
     /** Временная заглушка: работа перенесена в NotebookService. */
     public static void sortBySurname() {
         NotebookService.sortBySurname();
+    }
+
+    /** Временная заглушка: работа перенесена в NotebookService. */
+    public static void fillNotebooks() {
+        NotebookService.fillNotebooks();
     }
 
     public String getFIO() {

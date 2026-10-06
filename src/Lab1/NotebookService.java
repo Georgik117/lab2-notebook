@@ -81,4 +81,17 @@ public class NotebookService {
             System.out.println(n.toString());
         }
     }
+
+    public static void fillNotebooks() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите количество человек в записной книжке: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+        notebooks = new Notebook[n];
+        System.out.println("Введите информацию о людях: ");
+        for (int i = 0; i < notebooks.length; i++) {
+            System.out.println("Человек " + (i + 1) + ":");
+            notebooks[i] = new Notebook();
+        }
+    }
 }
