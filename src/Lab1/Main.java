@@ -25,6 +25,7 @@ public class Main {
             System.out.println("7. Удалить абонента по ФИО");
             System.out.println("8. Показать количество абонентов");
             System.out.println("9. Найти абонента по ФИО (точное совпадение)");
+            System.out.println("10. ");
             System.out.println("Выберете пункт меню (1..10)");
             int c = IN.nextInt();
             IN.nextLine(); // сброс перевода строки после nextInt
