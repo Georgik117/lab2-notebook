@@ -1,4 +1,4 @@
-import Lab1.NotebookService;
+package Lab1;
 
 import java.util.Scanner;
 
